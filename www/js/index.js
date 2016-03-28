@@ -33,19 +33,29 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+        console.log("device is ready");
+        
+        // WebSocket test code
+        /*var x = new WebSocket("ws://10.0.0.4:1337");
+        
+        x.onopen = function() {
+           console.log("Opened");
+           
+           x.send("Hallo");
+        };
+        
+        x.onmessage = function(message) {
+            console.log("Message" + JSON.stringify(message));
+        }
+        
+        x.onclose = function() {
+            console.log("Closed");
+        }*/
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+        
     }
 };
 
-app.initialize();
+app.initialize()
